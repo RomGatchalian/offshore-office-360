@@ -15,6 +15,7 @@
 		<link href="styles/menufullpage.css" rel="stylesheet">
 		<link href="styles/customscrollbar.css" rel="stylesheet">
 		<link href="styles/responsive.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 	</head>
 
 	<body data-spy="scroll" data-target="#nav_menu">
@@ -1257,7 +1258,7 @@
 				<!-- / -->
 
 				<!-- -->
-				<form>
+				<form id="contact-form" method="POST">
 					<!-- .row -->
 					<div class="row justify-content-center">
 						<!--  -->
@@ -1266,13 +1267,13 @@
 							<div class="row">
 								<!-- -->
 								<div class="col-md-6">
-									<input class="form-control" type="text" placeholder="Your Full Name" />
+									<input class="form-control" type="text" name="name" placeholder="Your Full Name" />
 								</div>
 								<!-- / -->
 
 								<!-- -->
 								<div class="col-md-6">
-									<input class="form-control" type="text" placeholder="Your Company Name" />
+									<input class="form-control" type="text" name="company" placeholder="Your Company Name" />
 								</div>
 								<!-- / -->
 							</div>
@@ -1282,23 +1283,13 @@
 							<div class="row">
 								<!-- -->
 								<div class="col-md-6">
-									<input class="form-control" type="email" placeholder="Email Address" />
+									<input class="form-control" type="email" name="email" placeholder="Email Address" />
 								</div>
 								<!-- / -->
 
 								<!-- -->
 								<div class="col-md-6">
-									<input class="form-control" type="text" placeholder="Contact Number" />
-								</div>
-								<!-- / -->
-							</div>
-							<!-- / -->
-
-							<!-- -->
-							<div class="row">
-								<!-- -->
-								<div class="col-md-12">
-									<input class="form-control" type="text" placeholder="Company Address" />
+									<input class="form-control" type="text" name="contact_no" placeholder="Contact Number" />
 								</div>
 								<!-- / -->
 							</div>
@@ -1308,7 +1299,17 @@
 							<div class="row">
 								<!-- -->
 								<div class="col-md-12">
-									<input class="form-control" type="text" placeholder="What company are you related to?" />
+									<input class="form-control" type="text" name="address" placeholder="Company Address" />
+								</div>
+								<!-- / -->
+							</div>
+							<!-- / -->
+
+							<!-- -->
+							<div class="row">
+								<!-- -->
+								<div class="col-md-12">
+									<input class="form-control" type="text" name="company_related" placeholder="What company are you related to?" />
 								</div>
 								<!-- / -->
 							</div>
@@ -1322,28 +1323,20 @@
 							<div class="row">
 								<!-- -->
 								<div class="col-md-12">
-									<!-- -->
-									<div class="dropdown">
-										<button class="btn dropdown-toggle" type="button" id="what_services" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											What services would you like to inquire about
-										</button>
-
-										<!-- .dropdown-menu -->
-										<div class="dropdown-menu" aria-labelledby="what_services">
-											<a class="dropdown-item" href="#">Virtual Assistant</a>
-											<a class="dropdown-item" href="#">Tech Support Voice</a>
-											<a class="dropdown-item" href="#">Teach Support Non-voice</a>
-											<div class="dropdown-divider"></div>
-											<p>Digital Marketing</p>
-											<a class="dropdown-item" href="#">Web Design, development, and maintenance</a>
-											<a class="dropdown-item" href="#">Social Media Marketing</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Transcriptionists</a>
-											<a class="dropdown-item" href="#">Others</a>
-										</div>
-										<!-- /.dropdown-menu -->
-									</div>
-									<!-- / -->
+									<select class="services-dropdown form-control" name="services[]" multiple="multiple">
+										  <option value="Virtual Assistant">Virtual Assistant</option>
+										  <option value="Tech Support Voice">Tech Support Voice</option>
+										  <option value="Tech Support Non-voice">Tech Support Non-voice</option>
+										<optgroup label="Digital Marketing">
+										  <option value="Web Design, development, and maintenance">Web Design, development, and maintenance</option>
+										  <option value="Social Media Marketing">Social Media Marketing</option>
+										</optgroup>
+										<optgroup label="">
+											<option value="Transcriptionists">Transcriptionists</option>
+											<option value="Others">Others</option>
+										</optgroup>
+									  </select>
+									  <br><br>
 								</div>
 								<!-- / -->
 							</div>
@@ -1353,7 +1346,7 @@
 							<div class="row">
 								<!-- -->
 								<div class="col-md-12">
-									<input class="form-control" type="text" placeholder="Others: Please specify" />
+									<input class="form-control" type="text" name="others_specify" placeholder="Others: Please specify" />
 								</div>
 								<!-- / -->
 							</div>
@@ -1363,24 +1356,15 @@
 							<div class="row">
 								<!-- -->
 								<div class="col-md-12">
-									<!-- -->
-									<div class="dropdown">
-										<button class="btn dropdown-toggle" type="button" id="how_many" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											How many people are you looking to hire?
-										</button>
-
-										<!-- .dropdown-menu -->
-										<div class="dropdown-menu" aria-labelledby="how_many">
-											<a class="dropdown-item" href="#">Only 1</a>
-											<a class="dropdown-item" href="#">2-5</a>
-											<a class="dropdown-item" href="#">5-10</a>
-											<a class="dropdown-item" href="#">10-50</a>
-											<a class="dropdown-item" href="#">50-100</a>
-											<a class="dropdown-item" href="#">I don’t know yet</a>
-										</div>
-										<!-- /.dropdown-menu -->
-									</div>
-									<!-- / -->
+									<select class="form-control" name="people_quantity">
+										<option value="">How many people are you looking to hire?</option>
+										<option value="Only 1">Only 1</option>
+										<option value="2-5">2-5</option>
+										<option value="5-10">5-10</option>
+										<option value="10-50">10-50</option>
+										<option value="50-100">50-100</option>
+										<option value="I don’t know yet">I don’t know yet</option>
+									</select>
 								</div>
 								<!-- / -->
 							</div>
@@ -1392,7 +1376,7 @@
 								<div class="col-md-7">
 									<!-- -->
 									<div class="form-timepicker" id="timepicker" data-target-input="nearest">
-										<input type="text" class="form-control datetimepicker-input" data-target="#timepicker" placeholder="Best time to call you?" />
+										<input type="text" class="form-control datetimepicker-input" name="call_time" data-target="#timepicker" placeholder="Best time to call you?" />
 
 										<!-- -->
 										<div class="btn btn-primary" data-target="#timepicker" data-toggle="datetimepicker">
@@ -1406,18 +1390,11 @@
 
 								<!-- -->
 								<div class="col-md-5">
-									<!-- -->
-									<div class="dropdown">
-										<button class="btn dropdown-toggle" type="button" id="what_services" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Timezone
-										</button>
-
-										<!-- .dropdown-menu -->
-										<div class="dropdown-menu" aria-labelledby="what_services">
-											<a class="dropdown-item" href="#">EST</a>
-											<a class="dropdown-item" href="#">PST</a>
-										</div>
-										<!-- /.dropdown-menu -->
-									</div>
+									<select class="form-control" name="call_timezone">
+										<option value="">Timezone</option>
+										<option value="EST">EST</option>
+										<option value="PST">PST</option>
+									</select>
 									<!-- / -->
 								</div>
 								<!-- / -->
@@ -1432,7 +1409,7 @@
 					<div class="row justify-content-center">
 						<!-- -->
 						<div class="col-md-10 sr-right">
-							<button class="btn btn-secondary" data-toggle="modal" data-target="#modal_thankyou" type="button">Submit</button>
+							<button class="btn btn-secondary"  type="submit">Submit</button>
 						</div>
 						<!-- / -->
 					</div>
@@ -1562,8 +1539,8 @@
 					<!-- -->
 					<div class="modal-body">
 						<h5 class="mb-4">Leave your information below and we'll make sure to get back to you.</h5>
-						<form>
-							<div><input class="form-control" type="text" placeholder="Enter Email Address" /></div>
+						<form id="subscribe-form" method="post">
+							<div><input class="form-control" type="email"name="email" placeholder="Enter Email Address" /></div>
 							<button type="submit" class="btn btn-secondary mb-0">Subscribe</button>
 						</form>
 					</div>
@@ -1576,6 +1553,7 @@
 		<!-- /#modal_newsletter -->
 		
 		<script src="scripts/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 		<script src="scripts/popper.min.js"></script>
 		<script src="scripts/moment.min.js"></script>
 		<script src="scripts/bootstrap.min.js"></script> 
@@ -1587,6 +1565,10 @@
 		<script src="scripts/smooth-scroll.js"></script>
 		<script src="scripts/scripts.js"></script>
 		<script src="scripts/customscrollbar.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<script src="scripts/contact.js"></script>
+		<script src="scripts/subscribe.js"></script>
 		<script type="text/javascript">
 			$(window).scroll(function() {
 				if ($(document).scrollTop() > 3000 && $("#modal_newsletter").attr("displayed") === "false") {

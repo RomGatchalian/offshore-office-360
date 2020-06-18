@@ -25,6 +25,12 @@ $(document).ready(function(){
     });
 });
 
+$('.services-dropdown').select2({
+	placeholder: "What services would you like to inquire about",
+	containerCssClass: "form-control",
+	allowClear: true
+});
+
 // Slide Menu
 smoothScroll.init();
 $(document).ready(function() {
