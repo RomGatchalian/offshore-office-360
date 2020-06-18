@@ -22,7 +22,7 @@
 
     //Recipients
     $mail->setFrom('noreply@offshoreoffice360.com', 'OffshoreOffice360 Inquiry Mailer');
-    $mail->addAddress('romgatchalian@gmail.com', 'OffshoreOffice360');     // Add a recipient
+    $mail->addAddress('synthesisdigitalagency@gmail.com', 'OffshoreOffice360');     // Add a recipient
 
     $services = $_POST["services"];
 
